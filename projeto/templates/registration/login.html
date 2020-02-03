@@ -1,0 +1,26 @@
+{% extends "onda/base.html" %}
+
+{% block content %}
+<title>Login</title>
+<div id="main">
+    <div class="container">
+        <div class="row">
+            <div id="content" class="col-12">
+                <article>
+                    <header>
+                        <h2>Login</h2>
+                        <br><br>
+                        <form method="post" class="form-login py-4">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="container logar">
+                                <button class="btn btn-secondary">Logar</button>
+                            </div>
+                        </form>
+                    </header>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
