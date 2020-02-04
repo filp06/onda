@@ -1,0 +1,67 @@
+{% extends "onda/base.html" %}
+
+{% block content %}
+<title>Monitoramento</title>
+
+<div id="monitor">
+    <div class="container">
+        <section>
+            <header>
+
+            </header>
+        </section>
+    </div>
+      
+</div>
+    <div id="intro">
+        <div class="container">
+            <section>
+                    <br>
+                <header>
+                    <h2>Monitoramento Ambiental</h2>
+                </header>
+                <div class="content">
+                    <br>
+                </div>
+            </section>
+        </div>
+    </div>
+<div id="main">
+    <section class="services padding-top-80 pdg-b-20">
+            <div class="container">
+                <ul class="row featured" style="list-style-type: none; justify-content: center; display: inline; position: relative;">
+                    {% for appm in appms %}
+                    <li class="col-sm-3 animate fadeInUp" data-wow-delay="0.4s">
+                        <div class="sec shadow" style="border-radius: 5px; cursor:pointer;">
+                            <a class="icon solid" href="{{ appm.link }}"></a> 
+                                <img src=" {{ appm.imagem.url }}" 
+                                style="width: 140px;
+                                min-height: 140px;
+                                max-height: 140px;
+                                border-radius: 10px;
+                                block-size: inherit;
+                                margin-bottom: 1.5rem;
+                                ">
+                            </a>
+                                <h6>{{ appm.titulo }}</h6>
+                            
+                                <div class="ser-over">
+                                    <a href="{{ appm.link }}">
+                                        <h6 style="margin-top: 0; margin: 0 0 20px 0;">{{ appm.titulo }}</h6>
+                                        <p style="font-size: 1rem; color: #fff;">
+                                            "{{ appm.descricao }}"
+                                        </p>
+                                    </a>
+                                </div>
+                            
+                        </div>
+                        
+                    </li>
+                    {% endfor %}
+                    
+                </ul>
+            </div>
+        </section>
+    </div>
+    
+{% endblock %}

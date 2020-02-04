@@ -1,0 +1,76 @@
+{% extends "onda/base.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+{% block content %}
+
+<title>Lista Home</title>
+<div id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    <a href="{% url 'url_administrador_onda' %}" class="btn btn-secondary" style="float: right;">Voltar</a>
+                </div>
+                <article>
+                    <header>
+                        <table class="table table-sm" style="table-layout: fixed;"> <!--table-layout: auto; buga no chrome-->
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col" class="font-weight-normal">Titulo</th>
+                                    <th scope="col" class="font-weight-normal">Link</th>
+                                    <th scope="col" class="font-weight-normal">Descrição</th>
+                                    <th scope="col" class="font-weight-normal">Imagem</th>
+                                    {% if perms.onda.change_app %}
+                                    <th scope="col"></th>
+                                    {% endif %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for app in onda %}
+                                <tr class="busca">
+                                    <th>{{ app.titulo }}</a></td>
+                                    <td>{{ app.link }}</td>
+                                    <td>{{ app.descricao }}</td>
+                                    <td><img src="{{ app.imagem.url }}" class="align-self-center mr-3" style="width:140px;"></td>
+                                    <td>
+                                        <div class="py-1">
+                                            {% if perms.onda.change_app %}
+                                            <a class="btn btn-outline-info col"
+                                            href="{% url 'url_edita_app' app.id %}">Editar</a>
+                                            {% endif %}
+                                        </div>
+                                        <div class="py-1">
+                                            {% if perms.onda.delete_app %}
+                                            <a class="btn btn-outline-danger col delete" data-confirm="Deseja realmente, deletar esta aplicação?"
+                                            href="{% url 'url_deleta_app' app.id %}">Deletar</a>
+                                            {% endif %}
+                                        </div>
+                                    </td>
+                                    
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </header>
+                </article>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<script>
+var deleteLinks = document.querySelectorAll('.delete');
+
+for (var i = 0; i < deleteLinks.length; i++) {
+  deleteLinks[i].addEventListener('click', function(event) {
+      event.preventDefault();
+
+      var choice = confirm(this.getAttribute('data-confirm'));
+
+      if (choice) {
+        window.location.href = this.getAttribute('href');
+      }
+  });
+}
+</script>
+{% endblock %}

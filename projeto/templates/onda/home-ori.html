@@ -1,0 +1,291 @@
+{% extends "onda/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<style>
+        /*
+            code by Iatek LLC 2018 - CC 2.0 License - Attribution required
+            code customized by Azmind.com
+        */
+        @media (min-width: 1286px) and (max-width: 1650px) {
+            /* Show 4th slide on md if col-md-4*/
+            .media-body p{
+                max-width: 300px;
+            }
+            .carousel-inner .active.col-lg-5.carousel-item + .carousel-item + .carousel-item {
+                position: absolute;
+                top: 0;
+                right: -15%;  /*change this with javascript in the future*/
+                z-index: -1;
+                display: block;
+                visibility: visible;
+            }
+        }
+        @media (min-width: 768px) and (max-width: 1286px) {
+            /* Show 4th slide on md if col-md-4*/
+            .media-body p{
+                max-width: 280px;
+            }
+            .carousel-inner .active.col-lg-5.carousel-item + .carousel-item + .carousel-item {
+                position: absolute;
+                top: 0;
+                right: -33.3333%;  /*change this with javascript in the future*/
+                z-index: -1;
+                display: block;
+                visibility: visible;
+            }
+        }
+        @media (min-width: 576px) and (max-width: 768px) {
+            /* Show 3rd slide on sm if col-sm-6*/
+            .media-body p{
+                max-width: 200px;
+            }
+            .carousel-inner .active.col-md-4.carousel-item + .carousel-item {
+                position: absolute;
+                top: 0;
+                right: -50%;  /*change this with javascript in the future*/
+                z-index: -1;
+                display: block;
+                visibility: visible;
+            }
+        }
+        
+        @media (min-width: 576px) {
+            
+            .carousel-item {
+                margin-right: 0;
+            }
+            /* show 2 items */
+            .carousel-inner .active {
+                display: block;
+            }
+            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) {
+                transition: none;
+            }
+            .carousel-inner .carousel-item-next {
+                position: relative;
+                transform: translate3d(0, 0, 0);
+            }
+            /* left or forward direction */
+            .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+            .carousel-item-next.carousel-item-left,
+            .carousel-item-next.carousel-item-left {
+                position: relative;
+                transform: translate3d(-100%, 0, 0);
+                visibility: visible;
+            }
+            /* farthest right hidden item must be also positioned for animations */
+            .carousel-inner .carousel-item-prev.carousel-item-right {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                display: block;
+                visibility: visible;
+            }
+            /* right or prev direction */
+            .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+            .carousel-item-prev.carousel-item-right,
+            .carousel-item-prev.carousel-item-right {
+                position: relative;
+                transform: translate3d(100%, 0, 0);
+                visibility: visible;
+                display: block;
+                visibility: visible;
+            }
+        }
+        /* MD */
+        @media (min-width: 768px) {
+            .carousel-item {
+                margin-right: 0;
+            }
+            /* show 2 items */
+            .carousel-inner .active {
+                display: block;
+            }
+            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) {
+                transition: none;
+            }
+            .carousel-inner .carousel-item-next {
+                position: relative;
+                transform: translate3d(0, 0, 0);
+            }
+            /* left or forward direction */
+            .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+            .carousel-item-next.carousel-item-left,
+            .carousel-item-next.carousel-item-left {
+                position: relative;
+                transform: translate3d(-100%, 0, 0);
+                visibility: visible;
+            }
+            /* farthest right hidden item must be also positioned for animations */
+            .carousel-inner .carousel-item-prev.carousel-item-right {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                display: block;
+                visibility: visible;
+            }
+            /* right or prev direction */
+            .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+            .carousel-item-prev.carousel-item-right,
+            .carousel-item-prev.carousel-item-right {
+                position: relative;
+                transform: translate3d(100%, 0, 0);
+                visibility: visible;
+                display: block;
+                visibility: visible;
+            }
+        }
+        /* LG */
+        @media (min-width: 1286px) {
+            .carousel-inner .active + .carousel-item {
+                display: block;
+            }
+            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left)+ .carousel-item {
+                transition: none;
+            }
+            .carousel-inner .carousel-item-next {
+                position: relative;
+                transform: translate3d(0, 0, 0);
+            }
+            /* left or forward direction */
+            .carousel-item-next.carousel-item-left + .carousel-item{
+                position: relative;
+                transform: translate3d(-100%, 0, 0);
+                visibility: visible;
+            }
+            /* right or prev direction */
+            .carousel-item-prev.carousel-item-right+ .carousel-item {
+                position: relative;
+                transform: translate3d(100%, 0, 0);
+                visibility: visible;
+                display: block;
+                visibility: visible;
+            }
+        }
+        </style>
+<title>ONDA/DF</title>
+    <div id="banner">
+        <div class="container">
+            <section>
+                <header>
+                    <h2>Bem vindo!</h2>
+                    <span class="byline">Observatório da Natureza e Desempenho Ambiental do Distrito Federal.</span>
+                </header>
+                <a href="#feed" class="button" style="text-decoration: none;">Aplicações</a>
+            </section>
+        </div>
+    </div>
+    <div id="feed">
+        <header>
+            <h1 style="font-size: 3rem; padding-bottom: 2rem;">News</h1>
+        </header>
+        <div class="container">
+            <section>
+                
+            <div class="row">
+                <div class="top-content">
+                    <div class="container">
+                        <div id="carousel-example" class="carousel slide" data-ride="carousel" style="left: 5%;">
+                            <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                                {% for feed in feeds %}
+                                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-5 {% if forloop.first %} active{% endif %}">
+                                    <a href="{{ feed.link }}" style="text-decoration: none; color: #000;">
+                                        <div class="media bg-white" style="border-radius: 35px; display: inline-flex; border: 1px solid #c9c9c9;">
+                                            <img src="{{ feed.imagem.url }}" class="align-self-center mr-3" 
+                                            style="width:140px; border-radius: 25%;block-size: inherit;
+                                            object-fit: cover; display: inline-block;">
+                                            <div class="media-body">
+                                                <h4 class="py-2" style="font-size: larger; color: #313331;">{{ feed.titulo }}</h4>
+                                                <p style="font-size: medium; inline-size: max-content;">{{ feed.descricao }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                    {% endfor %}
+                            </div>
+                                <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev" style="left: -13%">
+                                        <!--<span class="carousel-control-prev-icon" aria-hidden="true" style="color: darkgray; font-size: 50px;></span>-->
+                                        <i class="fa fa-chevron-left" aria-hidden="true" style="color: darkgray; font-size: 50px;"></i>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+                                        <!--<span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+                                        <i class="fa fa-chevron-right" aria-hidden="true" style="color: darkgray; font-size: 50px;"></i>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">
+                    
+                </div>
+            </section>
+        </div>
+    </div>
+    <div id="intro">
+        <div class="container">
+            <section>
+                <header>
+                    <h2>Aplicações e Sistemas do Brasília Ambiental</h2>
+                </header>
+                <div class="content">
+                    <p></p>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div id="main">
+        <div class="container">
+            <ul class="featured">
+                {% for app in onda %}
+                <li>
+                    <span class="pennant shadow">
+                        <a class="icon solid" href="{{ app.link }}"> 
+                            <img src=" {{ app.imagem.url }}" 
+                            style="width: 5.7rem;
+                            height: 5rem;
+                            border-radius: 50%;
+                            block-size: inherit;
+                            object-fit: cover;">
+                        </a>
+                    </span>
+                    <h3>{{ app.titulo }}</h3>
+                    <p>
+                        "{{ app.descricao }}"
+                    </p>
+                </li>
+                {% endfor %}
+                
+            </ul>
+        </div>
+    </div>
+    <script>
+    $('#carousel-example').on('slide.bs.carousel', function (e) {
+    /*
+        CC 2.0 License Iatek LLC 2018 - Attribution required
+    */
+    var $e = $(e.relatedTarget);
+    var idx = $e.index();
+    var itemsPerSlide = 5;
+    var totalItems = $('.carousel-item').length;
+ 
+    if (idx >= totalItems-(itemsPerSlide-1)) {
+        var it = itemsPerSlide - (totalItems - idx);
+        for (var i=0; i<it; i++) {
+            // append slides to end
+            if (e.direction=="left") {
+                $('.carousel-item').eq(i).appendTo('.carousel-inner');
+            }
+            else {
+                $('.carousel-item').eq(0).appendTo('.carousel-inner');
+            }
+        }
+    }
+});
+    </script>
+{% endblock %}

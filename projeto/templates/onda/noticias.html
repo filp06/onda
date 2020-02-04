@@ -1,0 +1,79 @@
+{% extends "onda/base.html" %}
+
+{% block content %}
+<title>Últimas Notícias</title>
+
+<div id="tophead">
+    <div class="container">
+        <section>
+            <header>
+                
+            </header>
+        </section>
+    </div>
+</div>
+<div id="intro">
+    <div class="container">
+        <section>
+            <br>
+        <header>
+            <h2>Últimas Notícias</h2>
+        </header>
+        <div class="content">
+            <br>
+        </div>
+    </section>
+    </div>
+</div>
+<div id="main">
+    {% block lateral %}
+    <!--Bloco na Lateral contendo filtros-->
+    <div id="sidePage" style="contain: size; padding: 0 2.5rem;">
+        <div class="row">
+            <ul class="content" style="list-style-type: none; padding: 0 8px;margin-left: 2rem;
+            border: 1px solid #d7dbda;width: 12rem;
+            height: 20rem;">
+                <li style="padding: 4px;border-bottom: 1px dotted;">
+                    <a href="#" type="button">Etep's(1)</a></li>
+                <li style="padding: 4px;border-bottom: 1px dotted;">
+                    <a href="#" type="button">Urutau(0)</a></li>
+                <li style="padding: 4px;border-bottom: 1px dotted;"
+                ><a href="#" type="button">Biblioteca Brasilia Ambiental(1)</a></li>
+            </ul>
+        </div>
+    </div>
+    {% endblock lateral %}
+    <!--Bloco das noticias-->
+    <div class="container">
+        {% for noticia in noticias %}
+        <div class="col-12" style="border-bottom: 1px solid #d7dbda; margin-bottom: 1rem;width: 60rem;
+        left: 8rem;">
+            <a href="{{ noticia.link }}" style="text-decoration: none; color: #333;">
+                <div class="media" style="display: flex; margin-bottom: 1rem;">
+                    <span class="side-news">
+                        <span class="local-news" style="font-size: smaller;"><i class="fas fa-calendar-alt" style="color: #56c9d6;"></i> {{ noticia.criado_em|date:"d/m/Y" }}</span>
+                        <span class="local-news" style="font-size: smaller;"><i class="fas fa-clock" style="color: #56c9d6;"></i> {{ noticia.criado_em|date:"H:i" }}</span>
+                        <span class="local-news"><i class="fas fa-stream" style="color: #56c9d6;"></i> {{ noticia.categoria }}</span>
+                    </span>
+                    <div style="border-left: 1px dotted #D6D6D6; margin-left: 9rem;">
+                        <img src="{{ noticia.imagem.url }}" class="align-self-center mr-3"
+                        style="width:140px;
+                        min-height: 120px;
+                        border-radius: 10px;
+                        margin-right: 1rem !important;
+                        block-size: inherit;
+                        object-fit: cover; 
+                        display: inline-block;
+                        margin-left: 1rem;">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="py-2" style="font-weight: 500;">{{ noticia.titulo }}</h4>
+                        <span style="font-size: medium; inline-size: auto;min-width: 30rem; width: 100%; color: #333;">{{ noticia.descricao }}</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

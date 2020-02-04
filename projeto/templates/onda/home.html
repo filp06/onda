@@ -1,0 +1,186 @@
+{% extends "onda/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<style>
+    @media (min-width: 1286px) {
+        /* Show in col-lg-5*/
+
+        .carousel-item img {
+            max-width: 300px;
+            border-radius: 15px;
+            margin-right: 7rem !important;
+            block-size: inherit;
+            filter: brightness(0) invert(1);
+            object-fit: cover;
+            display: inline-block;
+        }
+
+        .carousel-item p {
+            font-size: large;
+            inline-size: auto;
+            min-width: 30rem;
+            width: 100%;
+            color: #fff;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1286px) {
+        /* Show in col-md-4*/
+
+        .carousel-item img {
+            max-width: 200px;
+            border-radius: 15px;
+            margin-right: 3rem !important;
+            block-size: inherit;
+            filter: brightness(0) invert(1);
+            object-fit: cover;
+            display: inline-block;
+        }
+
+        .carousel-item p {
+            font-size: medium;
+            inline-size: auto;
+            min-width: 20rem;
+            width: 100%;
+            color: #fff;
+        }
+
+        .carousel-control-next {
+            left: 38rem;
+        }
+
+        .services .sec {
+            width: 12rem;
+        }
+
+    }
+
+    @media (min-width: 440px) and (max-width: 768px) {
+        /* Show in col-sm-6*/
+
+        .carousel-inner {
+            max-width: 20px;
+            right: 2rem;
+        }
+
+        .carousel-item img {
+            max-width: 150px;
+            border-radius: 15px;
+            margin-right: 1rem !important;
+            block-size: inherit;
+            filter: brightness(0) invert(1);
+            object-fit: cover;
+            display: inline-block;
+        }
+
+        .carousel-item p {
+            font-size: small;
+            inline-size: auto;
+            min-width: 15rem;
+            width: 100%;
+            color: #fff;
+        }
+
+        .pennant {
+            max-width: 250px;
+        }
+
+        .carousel-control-next {
+            left: 25rem;
+        }
+
+        .services .sec {
+            width: 12rem;
+        }
+    }
+</style>
+<title>ONDA/DF</title>
+<div id="banner">
+    <div class="container">
+        <section>
+            <div class="row">
+                <div class="top-content">
+                    <div class="container">
+                        <div id="carousel-example" class="carousel slide carousel-fade" data-ride="carousel"
+                            style="left: 5%;">
+                            <div class="carousel-inner row w-100 mx-auto" role="listbox" style="overflow:visible;">
+                                {% for feed in feeds %}
+                                <div
+                                    class="carousel-item col-12 col-sm-6 col-md-4 col-lg-5 {% if forloop.first %} active{% endif %}">
+                                    <a href="{{ feed.link }}" style="text-decoration: none; color: #fff;">
+                                        <div class="media" style="display: inline-flex;">
+                                            <img src="{{ feed.imagem.url }}" class="align-self-center mr-3">
+                                            <div class="media-body" style="margin-top: 1rem;">
+                                                <h4 class="py-2">{{ feed.titulo }}</h4>
+                                                <p>{{ feed.descricao }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev"
+                                style="left: -13%">
+                                <i class="fa fa-chevron-left" aria-hidden="true"
+                                    style="color: darkgray; font-size: 50px;"></i>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
+                                <i class="fa fa-chevron-right" aria-hidden="true"
+                                    style="color: darkgray; font-size: 50px;"></i>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="intro">
+    <div class="container">
+        <section>
+            <header>
+                <h2>Aplicações e Sistemas</h2>
+            </header>
+            <div class="content">
+                <p></p>
+            </div>
+        </section>
+    </div>
+</div>
+<div id="main">
+    <section class="services padding-top-80 pdg-b-20">
+        <div class="container">
+            <ul class="row featured"
+                style="list-style-type: none; justify-content: center; display: inline-block; position: relative;">
+                {% for app in onda %}
+                <li class="col-sm-3 animate fadeInUp" data-wow-delay="0.4s">
+                    <div class="sec shadow" style="border-radius: 5px;">
+                        <a class="icon solid" href="{{ app.link }}"></a>
+                        <img src=" {{ app.imagem.url }}" style="width: 160px;
+                                min-height: 140px;
+                                max-height: 140px;
+                                border-radius: 10px;
+                                block-size: inherit;
+                                margin-bottom: 1.5rem;
+                                ">
+                        </a>
+                        <h6>{{ app.titulo }}</h6>
+                        <!--******* HOVER *******-->
+                        <a href="{{ app.link }}">
+                            <div class="ser-over">
+                                <h6 style="margin-top: 0; margin: 0 0 20px 0;">{{ app.titulo }}</h6>
+                                <p style="font-size: 1rem; color: #fff;">
+                                    "{{ app.descricao }}"
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+</div>
+{% endblock %}

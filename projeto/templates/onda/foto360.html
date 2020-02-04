@@ -1,0 +1,54 @@
+{% extends "onda/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<title>ETEP's</title>
+    <div id="bannerEtep">
+        <div>
+            <div class="row">
+                <div id="content" class="col-12">
+                    <article>
+                        <iframe 
+                            src="https://360imagem.com/tour_site" 
+                            width="100%" 
+                            height="400" 
+                            frameborder="0" 
+                            style="border:0;display: block;margin: auto; box-shadow: 0 0 30px rgba(0,0,0,0.2);" 
+                            allowfullscreen="" 
+                            class="iframe_page">
+                        </iframe>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="intro">
+        <div class="container">
+            <section>
+                <header>
+                    <h2>Imagem 360°</h2>
+                </header>
+                <div class="content">
+                    <br>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <div id="main" style="padding: 1rem 0 5rem;">
+        <div>
+            <a href="{% url 'url_etep' %}" class="btn btn-secondary" style="float: right; margin-right: 1.5rem;">Voltar</a>
+        </div>
+        <!-- Page Content -->
+        <div class="galeria" style="padding: 2rem;">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-xl-3 thumb" style="padding: 10px 0 0;">
+                    <a href="https://seekbeak.com/v/d5VjYXaYzob?start_rot_x=0.05815&start_rot_y=-0.06716&start_rot_z=0.00000&start_rot_order=YXZ" target="_blank">
+                        <img  src="{% static "img/OlhosDagua.jpeg" %}" class="zoom"  alt="">
+                        <h3 style="font-weight: 400;">Parque Olhos D'água</h3>
+                    </a>
+                    <script async src="https://seekbeak.com/js/sbembed.js" charset="utf-8"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

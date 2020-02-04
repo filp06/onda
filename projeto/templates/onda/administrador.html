@@ -1,0 +1,80 @@
+{% extends "onda/base.html" %}
+
+{% block content %}
+<title>Admin</title>
+    <div id="main">
+        <div class="container">
+            <div class="row">
+                <div id="content" class="col-12">
+                    <article>
+                        <header>
+                            <h2>Admin</h2>
+                        </header>
+                        {% if user.is_authenticated %}
+                        <div class="row py-4">
+                            
+                            <div class="col py-4">
+                                <h3 style="font-weight: 400;">Aplicações Home</h3>
+                                {% if perms.onda.add_app %}
+                                <div class="col py-2">
+                                    <a href="{% url 'url_aplicacoes_onda' %}" class="button adm" style="text-decoration: none;">Adicionar Aplicação Home</a>
+                                </div>
+                                {% endif %}
+                                {% if perms.onda.change_app %}
+                                <div class="col py-2">
+                                    <a href="{% url 'url_lista_onda' %}" class="button adm" style="text-decoration: none;">Painel de Aplicações Home</a>
+                                </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="col py-4">
+                                <h3 style="font-weight: 400;">Aplicações Monitoramento</h3>
+                                {% if perms.onda.add_appM %}
+                                <div class="col py-2">
+                                    <a href="{% url 'url_aplicacoesM_onda' %}" class="button adm" style="text-decoration: none;">Adicionar Aplicação Monitoramento</a>
+                                </div>
+                                {% endif %}
+                                {% if perms.onda.change_appM %}
+                                <div class="col py-2">
+                                    <a href="{% url 'url_listaM_onda' %}" class="button adm" style="text-decoration: none;">Painel de Aplicações Monitoramento</a>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col py-4">
+                                <h3 style="font-weight: 400;">Feed</h3>
+                                {% if perms.onda.add_feed %}
+                                <div class="col py-2">
+                                    <a href="{% url 'url_aplicacoesF_onda' %}" class="button adm" style="text-decoration: none;">Adicionar Feed</a>
+                                </div>
+                                {% endif %}
+                                {% if perms.onda.change_feed %}
+                                <div class="col py-2">
+                                    <a href="{% url 'url_listaF_onda' %}" class="button adm" style="text-decoration: none;">Painel de Feeds</a>
+                                </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="col py-4">
+                                <h3 style="font-weight: 400;">Últimas Notícias</h3>
+                                {% if perms.onda.add_noticia %}
+                                <div class="col py-2">
+                                    <a href="{% url 'url_aplicacoesN' %}" class="button adm" style="text-decoration: none;">Adicionar notícia</a>
+                                </div>
+                                {% endif %}
+                                {% if perms.onda.change_noticia %}
+                                <div class="col py-2">
+                                    <a href="{% url 'url_listaN' %}" class="button adm" style="text-decoration: none;">Painel de notícias</a>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% endif %}
+                        <br><br>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

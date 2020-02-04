@@ -1,0 +1,35 @@
+{% extends "onda/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<title>Noticias</title>
+<div id="main">
+    <div class="container">
+        <div class="row">
+            <div id="content" class="col-12">
+                <div>
+                    <a href="{% url 'url_administrador_onda' %}" class="btn btn-secondary" style="float: right;">Voltar</a>
+                </div>
+                <article>
+                    <header>
+                        <!-- Verifica e identifica qual formulário, irá abrir -->
+                        {% if noticia %}
+                        <h2 class="text-center">Nova Noticia:</h2>
+                        {% else %}
+                        <h2 class="text-center">Editar Noticia:</h2>
+                        {% endif %}
+                        <br><br>
+                        <form method="POST" enctype = "multipart/form-data"> {% csrf_token %}
+
+                            {{ form|crispy }}
+
+                            <input class="btn btn-block btn-secondary" type="submit" value="Salvar">
+                        </form>
+                    </header>
+                </article>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
