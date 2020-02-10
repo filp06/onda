@@ -28,7 +28,7 @@
         /* Show in col-md-4*/
 
         .carousel-item img {
-            max-width: 200px;
+            max-width: 300px;
             border-radius: 15px;
             margin-right: 3rem !important;
             block-size: inherit;
@@ -64,7 +64,7 @@
         }
 
         .carousel-item img {
-            max-width: 150px;
+            max-width: 200px;
             border-radius: 15px;
             margin-right: 1rem !important;
             block-size: inherit;
@@ -102,11 +102,10 @@
                 <div class="top-content">
                     <div class="container">
                         <div id="carousel-example" class="carousel slide carousel-fade" data-ride="carousel"
-                            style="left: 5%;">
+                            style="left: 5%; height: 250px;">
                             <div class="carousel-inner row w-100 mx-auto" role="listbox" style="overflow:visible;">
                                 {% for feed in feeds %}
-                                <div
-                                    class="carousel-item col-12 col-sm-6 col-md-4 col-lg-5 {% if forloop.first %} active{% endif %}">
+                                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-5 {% if forloop.first %} active{% endif %}">
                                     <a href="{{ feed.link }}" style="text-decoration: none; color: #fff;">
                                         <div class="media" style="display: inline-flex;">
                                             <img src="{{ feed.imagem.url }}" class="align-self-center mr-3">
