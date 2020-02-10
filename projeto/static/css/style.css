@@ -114,7 +114,7 @@
 #banner {
     position: relative;
     padding: 3em 0 2em 0;
-    background: radial-gradient(circle, rgb(85, 145, 16) 0%, rgb(73, 124, 9) 100%);
+    background: linear-gradient( 180.5deg,  rgba(0,128,128,1) 8.5%, rgba(174,206,100,1) 118.2% ); /*linear-gradient( 180.5deg,  rgba(0,128,128,1) 8.5%, rgba(174,206,100,1) 118.2% )*/
     background-size: cover;
     text-align: center;
     color: #fff;
@@ -842,7 +842,7 @@ html{
 	color: #fff;
 }
 .services .ser-over {
-    background: radial-gradient(circle, rgb(85, 145, 16) 0%, rgb(73, 124, 9) 100%);
+    background: linear-gradient( 180.5deg,  rgba(0,128,128,1) 8.5%, rgba(174,206,100,1) 118.2% );
     background-size: cover;
 	position: absolute;
 	padding: 60px 20px;
