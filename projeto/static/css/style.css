@@ -737,7 +737,7 @@ ul.lists > li {
     outline: none;
     color: #333131;
     cursor: pointer;
-    padding: 0.4rem 1rem;
+    padding: 0.3rem 1.2rem;
     border-radius: 50%;
     border: 1px solid #333131;
     background-color: #FFF;
@@ -790,6 +790,7 @@ html{
 .carousel-control-next, .carousel-control-prev{
     width: 10% !important;
 }
+
 
 .avatar{
     background: url(../img/avatar.png) center no-repeat;
@@ -878,4 +879,109 @@ html{
 }
 .zoom:hover{
     transform: scale(1.1);
+}
+@media (min-width: 1286px) {
+    /* Show in col-lg-5*/
+
+    .carousel-item img {
+        max-width: 300px;
+        border-radius: 15px;
+        margin-right: 7rem !important;
+        block-size: inherit;
+        filter: brightness(0) invert(1);
+        object-fit: cover;
+        display: inline-block;
+    }
+
+    .carousel-item p {
+        font-size: large;
+        inline-size: auto;
+        min-width: 30rem;
+        width: 100%;
+        color: #fff;
+    }
+    .imagem-carousel{
+        width: 400px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1286px) {
+    /* Show in col-md-4*/
+
+    .carousel-item img {
+        max-width: 300px;
+        border-radius: 15px;
+        margin-right: 3rem !important;
+        block-size: inherit;
+        filter: brightness(0) invert(1);
+        object-fit: cover;
+        display: inline-block;
+    }
+
+    .carousel-item p {
+        font-size: medium;
+        inline-size: auto;
+        min-width: 20rem;
+        width: 100%;
+        color: #fff;
+    }
+
+    .carousel-control-next {
+        left: 38rem;
+    }
+
+    .services .sec {
+        width: 12rem;
+    }
+    #scroll-to-top{
+        padding: 0.3rem 1rem;
+    }
+    .imagem-carousel{
+        width: 300px;
+    }
+}
+
+@media (min-width: 240px) and (max-width: 768px) {
+    /* Show in col-sm-6*/
+
+    .carousel-inner {
+        max-width: 20px;
+        right: 2rem;
+    }
+
+    .carousel-item img {
+        max-width: 200px;
+        border-radius: 15px;
+        margin-right: 1rem !important;
+        block-size: inherit;
+        filter: brightness(0) invert(1);
+        object-fit: cover;
+        display: inline-block;
+    }
+
+    .carousel-item p {
+        font-size: small;
+        inline-size: auto;
+        min-width: 15rem;
+        width: 100%;
+        color: #fff;
+    }
+
+    .pennant {
+        max-width: 250px;
+    }
+
+    .carousel-control-next {
+        left: 25rem;
+    }
+
+    .services .sec {
+        width: 12rem;
+    }
+    #scroll-to-top{
+        padding: 0.3rem 1rem;
+    }
+    .imagem-carousel{
+        width: 300px;
+    }
 }
