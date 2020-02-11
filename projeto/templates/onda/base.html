@@ -3,21 +3,26 @@
 {% load staticfiles %}
 
 <html lang="pt-br">
-
+<!--*** BEGINING HEAD SECTION ***-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible">
+    <!--*** BEGINING STYLESHEETS SECTION ***-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="{%  static 'css\base.css' %}">
     <link rel="stylesheet" href="{%  static 'css\style.css' %}">
     <link rel="stylesheet" href="{%  static 'css\lightbox.min.css' %}">
+    <!--*** ENDING STYLESHEETS SECTION ***-->
 </head>
+<!--*** ENDING HEAD SECTION ***-->
 
+<!--*** BEGINING BODY SECTION ***-->
 <body class="homepage" id="page-top">
     <div id="page-wrapper">
+        <!--*** BEGINING HEADER SECTION ***-->
         <div id="header">
             <div>
                 <div id="logo">
@@ -31,12 +36,13 @@
                         </a>
                     </h1>
                 </div>
+                <!--*** BEGINING HEADER BUTTONS SECTION ***-->
                 <nav id="nav">
                     <ul>
                         <li class="current_page_item" style="white-space:nowrap;">
                             <a href="{% url 'url_home_onda' %}">Home</a>
                         </li>
-
+                        <!--*** BEGINING DORPTRON SECTION ***-->
                         <li class="opener" style="user-select:none; cursor:pointer; white-space:nowrap;">
                             <span class="lista"><i class="fas fa-bars"></i></span>
                             <ul class="user-select:none; display:none; position:absolute;">
@@ -64,15 +70,20 @@
                                 </li>
                             </ul>
                         </li>
-
-
+                        <!--*** ENDING DORPTRON SECTION ***-->
                     </ul>
                 </nav>
+                <!--*** ENDING HEADER BUTTONS SECTION ***-->
             </div>
         </div>
-        {% block content %}
+        <!--*** ENDING HEADER SECTION ***-->
 
+        <!--*** BEGINING PAGE SECTION ***-->
+        {% block content %}
         {% endblock content %}
+        <!--*** ENDING PAGE SECTION ***-->
+
+        <!--*** BEGINING FOOTER SECTION ***-->
         <section id="footer">
             <div class="container">
                 <header>
@@ -103,9 +114,13 @@
                     </ul>
                 </section>
                 <div class="copyright">© Copyright 2019</div>
+
                 <a id="scroll-to-top" href="#page-top">
                     <i class="fas fa-angle-up"></i>
                 </a>
+            <!--*** ENDING FOOTER SECTION ***-->
+
+                <!--*** BEGINING SCRIPTS SECTION ***-->
                 <script language="javascript" src="{%  static 'js\breakpoints.min.js' %}"></script>
                 <script language="javascript" src="{%  static 'js\browser.min.js' %}"></script>
                 <script language="javascript" src="{%  static 'js\jquery.min.js' %}"></script>
@@ -123,11 +138,11 @@
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
                     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
                     crossorigin="anonymous"></script>
-
-
+                <!--*** ENDING SCRIPTS SECTION ***-->
             </div>
         </section>
     </div>
+    
     <ul class="dropotron level-0"
         style="user-select: none; display: none; position: absolute; z-index: 1000; left: 145.5px; top: 91.3438px; opacity: 1; display: none;">
         {% if user.is_authenticated %}
@@ -139,6 +154,7 @@
             <a href="{% url 'url_sobre' %}" style="display: block;">Sobre</a>
         </li>
     </ul>
+    <!--*** BEGINING MOBILE SIDE BAR SECTION ***-->
     <div id="tittleBar">
         <a href="#navPanel" class="toggle"></a>
     </div>
@@ -182,6 +198,7 @@
             </a>
         </nav>
     </div>
+    <!--*** ENDING MOBILE SIDE BAR SECTION ***-->
 </body>
-
+<!--*** ENDING BODY SECTION ***-->
 </html>
